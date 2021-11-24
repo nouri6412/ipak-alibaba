@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions and definitions
  *
@@ -8,4 +9,7 @@
  * @subpackage Ipak_Alibaba
  * @since 1.0.0
  */
+
+require get_template_directory() . '/inc/menu.php';
+
 

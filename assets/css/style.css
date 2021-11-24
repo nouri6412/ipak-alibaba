@@ -120,7 +120,13 @@ body {
 
 .header .header-top .top-nav a {
     padding-left: 20px;
+    color: #706d6d;
 }
+
+.header .header-top .top-nav a:hover {
+    color: #0d6efd;
+}
+
 
 .header .header-down {
     height: 44px;

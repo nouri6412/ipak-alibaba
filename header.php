@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header.
  *
@@ -14,23 +15,24 @@
 ?>
 <!doctype html>
 <html>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="<?php  echo get_template_directory_uri(); ?>/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php  echo get_template_directory_uri(); ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/assets/css/items.css">
-    <link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/assets/css/menu.css">
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="<?php echo get_template_directory_uri(); ?>/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo get_template_directory_uri(); ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/items.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/menu.css">
+    <?php wp_head(); ?>
 </head>
 
 <body>
-<?php wp_body_open(); ?>
-<div class="header white">
+    <?php wp_body_open(); ?>
+    <div class="header white">
         <div class="header-top">
             <a class="link-logo" href="#">
-                <img src="<?php  echo get_template_directory_uri(); ?>/assets/img/logo.webp" />
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.webp" />
             </a>
             <div class="search-box">
                 <button class="input-submit">
@@ -46,11 +48,20 @@
                 </select>
             </div>
             <div class="top-nav">
-                <a>
-                    خانه
-                </a>
-                <a>ثبت نام | ورود</a>
-                <a>تماس با ما</a>
+                <?php
+                $menuLocations = get_nav_menu_locations();
+
+                $menuID = $menuLocations['top-right'];
+
+                $primaryNav = wp_get_nav_menu_items($menuID);
+                foreach ($primaryNav as $navItem) {
+                    if ($navItem->menu_item_parent == 0) {
+                      //  echo '<img src="'.get_field( 'menu_back_image', $navItem ).'" />';
+                        echo sprintf('<a href="%s" title="%s">%s</a>', $navItem->url, $navItem->title, ' ' . $navItem->title . ' ');
+                    }
+                }
+
+                ?>
             </div>
 
         </div>
@@ -66,8 +77,7 @@
                                     <ul class="nav inner">
                                         <li>
                                             <a href="#"> موبایل</a>
-                                            <div
-                                                style="background:url(assets/images/mobile.png) no-repeat left;background-color: #fff;">
+                                            <div style="background:url(assets/images/mobile.png) no-repeat left;background-color: #fff;">
                                                 <div class="nav-column  border">
                                                     <span class="head">گوشی موبایل</span>
                                                     <ul>
@@ -186,8 +196,7 @@
                                         </li>
                                         <li>
                                             <a href="#"> تبلت و کتاب خوان</a>
-                                            <div
-                                                style="background:url(assets/images/tablet-ebook-reader.png) no-repeat left;background-color: #fff;">
+                                            <div style="background:url(assets/images/tablet-ebook-reader.png) no-repeat left;background-color: #fff;">
                                                 <div class="nav-column  border">
                                                     <span class="head">تبلت</span>
                                                     <ul>
@@ -317,8 +326,7 @@
                                     <ul class="nav inner">
                                         <li>
                                             <a href="#"> صوتی و تصویری</a>
-                                            <div
-                                                style="background:url(assets/images/video-audio-entertainment.png) no-repeat left;background-color: #fff;">
+                                            <div style="background:url(assets/images/video-audio-entertainment.png) no-repeat left;background-color: #fff;">
                                                 <div class="nav-column  border">
                                                     <span class="head">تلویزیون</span>
                                                     <ul>
@@ -459,8 +467,7 @@
                                         </li>
                                         <li>
                                             <a href="#"> لوازم خانگی برقی</a>
-                                            <div
-                                                style="background:url(assets/images/home-appliance.png) no-repeat left;background-color: #fff;">
+                                            <div style="background:url(assets/images/home-appliance.png) no-repeat left;background-color: #fff;">
                                                 <div class="nav-column  border">
                                                     <span class="head">لوازم پخت و پز</span>
                                                     <ul>
