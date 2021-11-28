@@ -108,7 +108,9 @@ width: 100%;
     }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 600px)  {
 
-   
+    .product-cats-box .product-cats-box-content .product-cats-box-item{
+        margin: 10px 3px 40px 10px;
+    }
 }
