@@ -21,8 +21,8 @@ a{
 }
 
 .product-cats-box .product-cats-box-content .product-cats-box-item {
-    width: 80px;
-    height: 80px;
+    width: 95px;
+    height: 95px;
     margin: 10px 15px 40px 10px;
     float: right;
     text-align: center;
@@ -37,6 +37,8 @@ a{
 
 .product-cats-box .product-cats-box-content .product-cats-box-item label {
     margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
 }
 
 

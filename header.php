@@ -62,22 +62,23 @@
                 }
 
                 ?>
-               
+
             </div>
 
         </div>
         <div class="header-down">
             <nav class="nav-main">
-            <button class="btn btn-primary btn-open"><i class="fa fa-bars"></i></button>
-            <button class="btn btn-primary btn-close"></button>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'top-main',
-                        'container' => false,
-                        'menu_class'=>'main-menu'
-                    ));
-                    ?>
+                <button class="btn btn-primary btn-open"><i class="fa fa-bars"></i></button>
+                <button class="btn btn-primary btn-close"></button>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'top-main',
+                    'container' => false,
+                    'menu_class' => 'main-menu'
+                ));
+                ?>
             </nav>
-            
+
         </div>
     </div>
+    
