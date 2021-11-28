@@ -44,7 +44,7 @@ nav .main-menu li ul {
   right: 80%;
   width: max-content;
   z-index: 1000;
-  border: 1px solid #c7c5c5;
+  /* border: 1px solid #c7c5c5; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   top: 38px;
   -webkit-transition: opacity 0.3s ease-in-out;
@@ -54,9 +54,24 @@ nav .main-menu li ul {
   transition: opacity 0.3s ease-in-out;
 }
 
+nav .main-menu > li > ul
+{
+  right: 0%;
+}
+
 nav .main-menu li:hover>ul {
   opacity: 1;
   visibility: visible;
+}
+
+nav .main-menu > li {
+  border: 1px solid #fff;
+}
+
+
+nav .main-menu > li:hover {
+  border: 1px solid #c7c5c5;
+  border-bottom: 1px solid #fff;
 }
 
 nav ul {}
@@ -66,7 +81,7 @@ nav li ul {}
 nav li ul li {
   width: 100%;
   background: #fff;
-  border-top: 1px solid #c7c5c5;
+  /* border-top: 1px solid #c7c5c5; */
 }
 
 nav li ul li:first-child {
