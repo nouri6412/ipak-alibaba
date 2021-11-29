@@ -10,6 +10,8 @@
  * @since 1.0.0
  */
 
+add_theme_support( 'post-thumbnails' );
+
 add_action( 'wp_enqueue_scripts', 'ipak_add_my_script' );
 function ipak_add_my_script() {
     wp_enqueue_script(

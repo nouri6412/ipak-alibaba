@@ -85,8 +85,14 @@ get_header();
     </div>
     <div class="main-item main-content row">
         <?php
-        	get_template_part( 'template-parts/header/cats' );
+        get_template_part('template-parts/header/cats');
         ?>
+        <?php
+        $args = array('category' => the_ID(), 'posts_per_page' => 5);
+        $myposts = get_posts($args);
+        foreach ($myposts as $post) :    setup_postdata($post);
+        ?>
+        <?php endforeach; ?>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-item">
             <div class="product-item-content img-zoom">
                 <div class="product-item-content-img">
