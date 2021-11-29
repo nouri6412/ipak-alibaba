@@ -70,10 +70,11 @@ a{
 
 .product-item .product-item-content  .product-item-content-img img{
 width: 100%;
+object-fit: cover;
 }
 
 .product-item .product-item-content  .product-item-content-title{
-    margin-top: 40px;
+    margin-top: 15px;
     margin-bottom: 8px;
     font-size: 15px;
     color: #000;
