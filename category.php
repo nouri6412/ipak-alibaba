@@ -85,9 +85,48 @@ get_header();
     </div>
     <div class="main-item main-content row">
         <?php
-        get_template_part('template-parts/header/cats');
+        $slug_cat="";
+                $current_category = get_queried_object();
+              //  var_dump($current_category);
+               $slug_cat_1= get_field('cats_back_slug',$current_category);
+               if(strlen($slug_cat_1)>0)
+               {
+                $slug_cat=$slug_cat_1;
+               }
+               else
+               {
+                $slug_cat=$current_category->category_nicename;
+               }
+        $category = get_category_by_slug($slug_cat);
+
+        $args = array(
+            'type'                     => 'post',
+            'child_of'                 => $category->term_id,
+            'orderby'                  => 'name',
+            'order'                    => 'ASC',
+            'hide_empty'               => FALSE,
+            'hierarchical'             => 1,
+            'taxonomy'                 => 'category',
+        );
+        
+        $categories = get_categories($args);
+        if(count($categories)==0)
+        {
+            $args = array(
+                'type'                     => 'post',
+                'child_of'                 => $category->parent,
+                'orderby'                  => 'name',
+                'order'                    => 'ASC',
+                'hide_empty'               => FALSE,
+                'hierarchical'             => 1,
+                'taxonomy'                 => 'category',
+            );
+            $categories = get_categories($args);
+        }
+        get_template_part('template-parts/header/cats',null,array("categories"=>$categories));
         ?>
-        <?php // single_cat_title(); 
+        <?php
+        // single_cat_title(); 
         ?>
         <?php
         while (have_posts()) : the_post();

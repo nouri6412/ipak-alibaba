@@ -16,76 +16,25 @@ get_header();
 ?>
 <div class="main">
     <div class="main-item main-side-bar">
-
-
-
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                        تولید کنندگان
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
-                        <a href="#">
-                            ماشین سازی شماره 1
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 2
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 3
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                        بهترین تولید کنندگان
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
-                        <a href="#">
-                            ماشین سازی شماره 1
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 2
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 3
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                        تولید کنندگان پیشنهادی
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                    <div class="accordion-body">
-                        <a href="#">
-                            ماشین سازی شماره 1
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 2
-                        </a>
-                        <a href="#">
-                            ماشین سازی شماره 3
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <a>ماشین سازی اواکو</a>
+        <a>ماشین سازی سبلان</a>
     </div>
     <div class="main-item main-content row">
         <?php
-        get_template_part('template-parts/header/cats');
+        $category = get_category_by_slug('concrete-block-machine');
+
+        $args = array(
+            'type'                     => 'post',
+            'child_of'                 => $category->term_id,
+            'orderby'                  => 'name',
+            'order'                    => 'ASC',
+            'hide_empty'               => FALSE,
+            'hierarchical'             => 1,
+            'taxonomy'                 => 'category',
+        );
+        
+        $categories = get_categories($args);
+        get_template_part('template-parts/header/cats',null,array("categories"=>$categories));
         ?>
         <?php
         $args = array('category' => the_ID(), 'posts_per_page' => 5);

@@ -171,6 +171,7 @@ body {
     text-decoration: none;
     color: #706d6d;
     display: block;
+    line-height: 2;
 }
 
 .main-side-bar a:hover{
